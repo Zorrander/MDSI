@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="index.xsl" ?>
+
+ <school>
+ 
+  <matiere id="1">
+    <name>Programmation Objet"</name>
+    <code>I001</code>
+  </matiere>
+  
+   <matiere id="2">
+    <name>Programmation Fonctionnelle</name>
+    <code>I002</code>
+  </matiere>
+  
+   <matiere id="3">
+    <name>Programmation Logique</name>
+    <code>I003</code>
+  </matiere>
+  
+ </school>

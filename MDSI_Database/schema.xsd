@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!-- LES CURSUS -->
+<xs:element name="cursus">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:integer"/>
+  </xs:complexType>
+
+
+ <!-- identifiant d'un cursus -->
+   <xs:key name="cursusId">
+       <xs:selector xpath="./cursus" />
+       <xs:field xpath="@id" />
+   </xs:key>
+</xs:element>
+
+<!-- LES MATIERES -->
+
+<xs:element name="matiere">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="code" type="xs:string"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:integer"/>
+  </xs:complexType>
+
+
+ <!-- identifiant d'une matière -->
+   <xs:key name="matiereId">
+       <xs:selector xpath="./matiere" />
+       <xs:field xpath="@id" />
+   </xs:key>
+</xs:element>
+
+<!-- LES PERSONNES -->
+
+ <xs:complexType name="personne">
+   <xs:sequence>
+     <xs:element name="lastName" type="xs:string"/>
+     <xs:element name="firstName" type="xs:string"/>
+     <xs:element name="dateOfBirth">
+       <xs:simpleType>
+         <xs:restriction base="xs:string">
+           <xs:pattern value="[0-9]{2}/[0-9]{2}/[0-9]{4}" />
+         </xs:restriction>
+       </xs:simpleType>
+     </xs:element>
+   </xs:sequence>
+    <xs:attribute name="id" type="xs:integer"/>
+  </xs:complexType>
+
+<!-- Les enseignants -->
+<xs:element name="enseignant">
+  <xs:complexType>
+    <xs:complexContent>
+        <xs:extension base="personne">
+           <xs:sequence>
+              <xs:element name="grade" type="xs:string"/>
+            </xs:sequence>
+        </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+   <!-- identifiant d'un enseignant -->
+        <xs:key name="enseignantId">
+          <xs:selector xpath="./enseignant" />
+          <xs:field xpath="@id" />
+        </xs:key> 
+</xs:element>
+
+<!-- Les élèves -->    
+
+<xs:element name="eleve">
+  <xs:complexType>
+    <xs:complexContent>
+        <xs:extension base="personne">
+           <xs:sequence>
+              <xs:element name="annee" type="xs:integer"/>
+              <xs:element name="groupe" type="xs:string"/>              
+            </xs:sequence>
+            <xs:attribute name="cursusRef" type="xs:integer"/>
+
+        </xs:extension>
+    </xs:complexContent>
+</xs:complexType>
+  
+   <!-- identifiant d'un eleve -->
+        <xs:key name="eleveId">
+          <xs:selector xpath="./eleve" />
+          <xs:field xpath="@id" />
+        </xs:key>
+        
+        <xs:keyref name="cursusIdRef" refer="cursusId">
+           <xs:selector xpath="./eleve" />
+           <xs:field xpath="@cursus" />
+        </xs:keyref> 
+</xs:element> 
+    
+<!-- LIAISON MATIERE-ENSEIGNANT -->
+
+<xs:element name="matiere_prof"/>
+    <xs:complexType>
+        <xs:attribute name="matID" type="xs:integer" />
+        <xs:attribute name="profID" type="xs:integer" />
+    </xs:complexType>
+<!-- références aux identifiants enseignant/matière dans la table de liaison-->
+    <xs:keyref name="matiereIdRef" refer="matiereId">
+        <xs:selector xpath="./matiere_prof" />
+        <xs:field xpath="@matID" />
+    </xs:keyref>
+    <xs:keyref name="enseignantIdRef" refer="enseignantId">
+        <xs:selector xpath="./matiere_prof" />
+        <xs:field xpath="@profID" />
+    </xs:keyref>
+
+</xs:schema>

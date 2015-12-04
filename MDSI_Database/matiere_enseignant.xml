@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="index.xsl" ?>
+
+ <school>
+   <matiere_prof matiereId="1" enseignantId="1"/>
+   <matiere_prof matiereId="2" enseignantId="2"/>
+   <matiere_prof matiereId="2" enseignantId="3"/>
+   <matiere_prof matiereId="3" enseignantId="3"/> 
+ </school>

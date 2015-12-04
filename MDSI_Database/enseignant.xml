@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-stylesheet type="text/xsl" href="index.xsl" ?>
+
+ <school>
+ 
+  <enseignant id="1">
+    <lastName>Exposito</lastName>
+    <firstName>Ernesto</firstName>
+    <dateOfBirth>10/10/1980</dateOfBirth>
+    <grade></grade>
+  </enseignant>
+  
+  <enseignant id="2">
+     <lastName>Marre</lastName>
+    <firstName>Daniel</firstName>
+    <dateOfBirth>25/02/1960</dateOfBirth>
+    <grade></grade>
+  </enseignant>
+  
+  <enseignant id="3">
+    <lastName>Esquirol</lastName>
+    <firstName>Patrick</firstName>
+    <dateOfBirth>01/11/1970</dateOfBirth>
+    <grade></grade>
+  </enseignant>
+  
+ </school>
