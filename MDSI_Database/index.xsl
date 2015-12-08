@@ -2,7 +2,7 @@
   <xsl:template match="/">
     <html>
       <head>
-        <title>Mes matieres</title>
+        <title>Projet MDSI</title>
       </head>
       <body>
         <ul>

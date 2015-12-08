@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Projet MDSI</title>
+</head>
+
+<body style="text-align:center">
+
+
+    <h1>MDSI Web app</h1>
+    <hr/>
+    <div class="form" style="margin-top:60px">
+
+        <form action="process.php" id="process_form" method="POST">
+            <p>
+                Choisir la catégorie à afficher :<br/>
+                <input style="margin-top:20px" type="radio" name="souhait" value="matieres" id="matieres" />
+                <label for="matieres">Les matières</label>
+                <input type="radio" name="souhait" value="enseignants" id="enseignants" />
+                <label for="enseignants">Les enseignants</label>
+            </p>
+
+            <input type="submit" value="envoyer" style="margin-top:30px" />
+        </form>
+    </div>
+
+
+</body>
+<footer style="position:absolute;bottom:40px;right:0;left:0">
+    <hr/>
+    <h3>Quitter l'application</h3>
+    <div class="form" style="margin-top:30px">
+        <form action="drop.php" id="delete_form" method="POST">
+            <input type="submit" value="Exit"/>
+        </form>
+    </div>
+</footer>
+
+
+</html>
